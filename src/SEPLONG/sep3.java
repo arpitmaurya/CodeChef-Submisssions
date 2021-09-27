@@ -1,26 +1,26 @@
-package September;
-
+package SEPLONG;
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 
 
-class sep1 {
+class sep3 {
 
     static Reader rb;
 
     public static void main(String[] args)
             throws IOException {
 
-        rb = new Reader();
-        int t = rb.nextInt();
-    try{
-        for (int i = 1; i <= t; ++i) {
-            Solution();
-        }
-    }catch (Exception e){
-        System.out.println(e.getStackTrace());
-    }
+       try {
+           rb = new Reader();
+           int t = rb.nextInt();
+
+           for (int i = 1; i <= t; ++i) {
+               Solution();
+           }
+       }catch (Exception e ){
+           e.printStackTrace();
+       }
 
     }
 
@@ -28,26 +28,52 @@ class sep1 {
 //=====================- SOLUTION -===================>
 
     static void Solution() throws IOException {
-        String[] inp = rb.readLine().split(" ");
-        int n = Integer.parseInt(inp[0]);
-        int a = Integer.parseInt(inp[1]);
-        int b = Integer.parseInt(inp[2]);
+      //  String inp[] = rb.readLine().split(" ");
+        //int n = rb.nextInt();
 
-        String[] arr = rb.readLine().split("");
-        int sum= 0;
-        for(String i : arr){
+        // [8 8] [5] [15 6] =>
 
-            if(i.equals("0")){
-                sum+=a;
-            }else{
-                sum+=b;
-            } }
+        int[] arr = inp_to_arr(5);
+        int a = arr[0];
+        int b = arr[1];
+        int c = arr[2];
+        int d = arr[3];
+        int e = arr[4];
 
-        System.out.println(sum);
+        int flag = 0;
+        if(a+b<=d && c<=e) flag =1;
+        else if(a+c<=d && b <=e) flag=1;
+        else if(b+c<=d && a <= e) flag=1;
+        else flag=0;
+
+        if(flag==1){
+            System.out.println("YES");
+        }else System.out.println("NO");
+
+
+        //System.out.print(Arrays.toString(arr));
+
 
     }
 
-    static int[] convStrngArrToInt(String[] arr) {
+    static int[] inp_to_arr(int n){
+
+        int[] arr = new int[n];
+        try {
+
+        for (int i = 0 ; i < n ; i ++){
+
+                arr[i] = rb.nextInt();
+
+        }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return arr;
+    }
+
+    static int[] convStrngArrToint(String[] arr) {
         int arr_lenght = arr.length;
         int[] int_arr = new int[arr_lenght];
         for (int i = 0; i < arr_lenght; i++) {
@@ -55,6 +81,16 @@ class sep1 {
         }
         return int_arr;
     }
+
+    static Integer[] convStrngArrToInt(String[] arr) {
+        int arr_lenght = arr.length;
+        Integer[] int_arr = new Integer[arr_lenght];
+        for (int i = 0; i < arr_lenght; i++) {
+            int_arr[i] = Integer.parseInt(arr[i]);
+        }
+        return int_arr;
+    }
+
 
     static boolean isPresent(int[] a, int value) {
         boolean isPresent = false;

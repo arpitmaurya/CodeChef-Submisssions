@@ -1,50 +1,53 @@
-package START12C;
+package SEPLONG;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 
 
-class MAXPOINT {
+public class sep2 {
 
     static Reader rb;
 
     public static void main(String[] args)
             throws IOException {
 
-        try {
-            rb = new Reader();
-            int t = rb.nextInt();
+        rb = new Reader();
+        int t = rb.nextInt();
 
-            for (int i = 1; i <= t; ++i) {
-                Solution();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+        for (int i = 1; i <= t; ++i) {
+            Solution();
         }
-
+        rb.close();
     }
 
 
 //=====================- SOLUTION -===================>
 
     static void Solution() throws IOException {
-        String inp[] = rb.readLine().split(" ");
-        String inp2[] = rb.readLine().split(" ");
 
-        int time = 240;
-        int marks = 0;
-        int i = 0;
+        int n = rb.nextInt();
+        String[] tempA = rb.readLine().split(" ");
+        int[] arrA= convStrngArrToint(tempA);
 
-        for (String s : inp){
-           if (time>0){
-            int t = Integer.parseInt(s);
-            int mark = Integer.parseInt(inp2[i]);
-               time -= t * 20;
-               marks *= mark;
-           }
-
+        int evenA = 0 ;
+        int oddA= 0;
+        for (int i = 0 ; i < n ; ++i){
+            if(isEven(arrA[i])){
+                evenA += 1;
+            }else{
+                oddA++;
+            }
         }
+
+        int dEven = n/2;
+        int dOdd = n/2;
+
+        if(n%2==1){
+            dOdd++;
+        }
+
+        System.out.println(Math.min(dOdd, evenA) + Math.min(dEven,oddA));
 
     }
 
@@ -56,16 +59,6 @@ class MAXPOINT {
         }
         return int_arr;
     }
-
-    static Integer[] convStrngArrToInt(String[] arr) {
-        int arr_lenght = arr.length;
-        Integer[] int_arr = new Integer[arr_lenght];
-        for (int i = 0; i < arr_lenght; i++) {
-            int_arr[i] = Integer.parseInt(arr[i]);
-        }
-        return int_arr;
-    }
-
 
     static boolean isPresent(int[] a, int value) {
         boolean isPresent = false;

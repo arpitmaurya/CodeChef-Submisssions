@@ -1,11 +1,13 @@
-package START12C;
+package PRACTICE;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.math.BigInteger;
 
+// finding isprime or not for biginteger
 
-class MAXPOINT {
+class INSOMB1 {
 
     static Reader rb;
 
@@ -17,7 +19,7 @@ class MAXPOINT {
             int t = rb.nextInt();
 
             for (int i = 1; i <= t; ++i) {
-                Solution();
+                System.out.println(Solution());
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -28,24 +30,14 @@ class MAXPOINT {
 
 //=====================- SOLUTION -===================>
 
-    static void Solution() throws IOException {
-        String inp[] = rb.readLine().split(" ");
-        String inp2[] = rb.readLine().split(" ");
+    static String Solution() throws IOException {
+        BigInteger b = new BigInteger(rb.readLine());
 
-        int time = 240;
-        int marks = 0;
-        int i = 0;
-
-        for (String s : inp){
-           if (time>0){
-            int t = Integer.parseInt(s);
-            int mark = Integer.parseInt(inp2[i]);
-               time -= t * 20;
-               marks *= mark;
-           }
-
+        if(b.isProbablePrime(1)){
+            return "PRIME";
+        }else{
+            return "COMPOSITE";
         }
-
     }
 
     static int[] convStrngArrToint(String[] arr) {

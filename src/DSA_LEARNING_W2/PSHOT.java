@@ -1,27 +1,26 @@
-package September;
+package DSA_LEARNING_W2;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
 
-public class eqd {
+class PSHOT {
 
     static Reader rb;
 
     public static void main(String[] args)
             throws IOException {
 
-        try{
-        rb = new Reader();
-        int t = rb.nextInt();
+        try {
+            rb = new Reader();
+            int t = rb.nextInt();
 
-        for (int i = 1; i <= t; ++i) {
-            Solution();
-        }}catch (Exception e ){
-
+            for (int i = 1; i <= t; ++i) {
+                Solution();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
     }
@@ -30,40 +29,7 @@ public class eqd {
 //=====================- SOLUTION -===================>
 
     static void Solution() throws IOException {
-
-        int n = rb.nextInt();
-        String[] inp = rb.readLine().split(" ");
-        Integer[] arr = convStrngArrToInt(inp);
-
-        if(arr.length<=2){
-            System.out.println(0);
-        }
-        else {
-            HashMap<Integer, Integer> map = new HashMap<>();
-
-            for (Integer i : arr) {
-                if (map.containsKey(i)) {
-                    map.put(i, map.get(i) + 1);
-                } else {
-                    map.put(i, 1);
-                }
-            }
-
-            int m = 0;
-            for (Integer i : map.keySet()){
-                m = Integer.max(m,map.get(i));
-            }
-
-            if(m==1) {
-                System.out.println(n-2);
-            }
-            else {
-                System.out.println(n-m);
-
-
-            }
-
-        }
+        String inp[] = rb.readLine().split(" ");
 
     }
 
@@ -84,6 +50,7 @@ public class eqd {
         }
         return int_arr;
     }
+
 
     static boolean isPresent(int[] a, int value) {
         boolean isPresent = false;

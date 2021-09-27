@@ -1,11 +1,11 @@
-package START12C;
+package DSA_LEARNING_W2;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 
 
-class MAXPOINT {
+class COMPILER {
 
     static Reader rb;
 
@@ -30,21 +30,6 @@ class MAXPOINT {
 
     static void Solution() throws IOException {
         String inp[] = rb.readLine().split(" ");
-        String inp2[] = rb.readLine().split(" ");
-
-        int time = 240;
-        int marks = 0;
-        int i = 0;
-
-        for (String s : inp){
-           if (time>0){
-            int t = Integer.parseInt(s);
-            int mark = Integer.parseInt(inp2[i]);
-               time -= t * 20;
-               marks *= mark;
-           }
-
-        }
 
     }
 

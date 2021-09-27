@@ -1,27 +1,27 @@
-package September;
+package DSA_LEARNING_W2;
+
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.Arrays;
 
 
-class sep3 {
+class STUPMACH {
 
     static Reader rb;
 
     public static void main(String[] args)
             throws IOException {
 
-       try {
-           rb = new Reader();
-           int t = rb.nextInt();
+        try {
+            rb = new Reader();
+            int t = rb.nextInt();
 
-           for (int i = 1; i <= t; ++i) {
-               Solution();
-           }
-       }catch (Exception e ){
-           e.printStackTrace();
-       }
+            for (int i = 1; i <= t; ++i) {
+                Solution();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -29,49 +29,8 @@ class sep3 {
 //=====================- SOLUTION -===================>
 
     static void Solution() throws IOException {
-      //  String inp[] = rb.readLine().split(" ");
-        //int n = rb.nextInt();
+        String inp[] = rb.readLine().split(" ");
 
-        // [8 8] [5] [15 6] =>
-
-        int[] arr = inp_to_arr(5);
-        int a = arr[0];
-        int b = arr[1];
-        int c = arr[2];
-        int d = arr[3];
-        int e = arr[4];
-
-        int flag = 0;
-        if(a+b<=d && c<=e) flag =1;
-        else if(a+c<=d && b <=e) flag=1;
-        else if(b+c<=d && a <= e) flag=1;
-        else flag=0;
-
-        if(flag==1){
-            System.out.println("YES");
-        }else System.out.println("NO");
-
-
-        //System.out.print(Arrays.toString(arr));
-
-
-    }
-
-    static int[] inp_to_arr(int n){
-
-        int[] arr = new int[n];
-        try {
-
-        for (int i = 0 ; i < n ; i ++){
-
-                arr[i] = rb.nextInt();
-
-        }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return arr;
     }
 
     static int[] convStrngArrToint(String[] arr) {

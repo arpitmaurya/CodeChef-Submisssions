@@ -1,27 +1,26 @@
-package START12C;
+package SEPLONG;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 
 
-class MAXPOINT {
+class sep1 {
 
     static Reader rb;
 
     public static void main(String[] args)
             throws IOException {
 
-        try {
-            rb = new Reader();
-            int t = rb.nextInt();
-
-            for (int i = 1; i <= t; ++i) {
-                Solution();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+        rb = new Reader();
+        int t = rb.nextInt();
+    try{
+        for (int i = 1; i <= t; ++i) {
+            Solution();
         }
+    }catch (Exception e){
+        System.out.println(e.getStackTrace());
+    }
 
     }
 
@@ -29,26 +28,26 @@ class MAXPOINT {
 //=====================- SOLUTION -===================>
 
     static void Solution() throws IOException {
-        String inp[] = rb.readLine().split(" ");
-        String inp2[] = rb.readLine().split(" ");
+        String[] inp = rb.readLine().split(" ");
+        int n = Integer.parseInt(inp[0]);
+        int a = Integer.parseInt(inp[1]);
+        int b = Integer.parseInt(inp[2]);
 
-        int time = 240;
-        int marks = 0;
-        int i = 0;
+        String[] arr = rb.readLine().split("");
+        int sum= 0;
+        for(String i : arr){
 
-        for (String s : inp){
-           if (time>0){
-            int t = Integer.parseInt(s);
-            int mark = Integer.parseInt(inp2[i]);
-               time -= t * 20;
-               marks *= mark;
-           }
+            if(i.equals("0")){
+                sum+=a;
+            }else{
+                sum+=b;
+            } }
 
-        }
+        System.out.println(sum);
 
     }
 
-    static int[] convStrngArrToint(String[] arr) {
+    static int[] convStrngArrToInt(String[] arr) {
         int arr_lenght = arr.length;
         int[] int_arr = new int[arr_lenght];
         for (int i = 0; i < arr_lenght; i++) {
@@ -56,16 +55,6 @@ class MAXPOINT {
         }
         return int_arr;
     }
-
-    static Integer[] convStrngArrToInt(String[] arr) {
-        int arr_lenght = arr.length;
-        Integer[] int_arr = new Integer[arr_lenght];
-        for (int i = 0; i < arr_lenght; i++) {
-            int_arr[i] = Integer.parseInt(arr[i]);
-        }
-        return int_arr;
-    }
-
 
     static boolean isPresent(int[] a, int value) {
         boolean isPresent = false;

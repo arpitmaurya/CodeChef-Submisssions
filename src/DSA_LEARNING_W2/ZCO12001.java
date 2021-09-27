@@ -1,23 +1,16 @@
-package September;
+package DSA_LEARNING_W2;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
 
-
-
-class Sep4 {
+class ZCO12001 {
 
     static Reader rb;
 
     public static void main(String[] args)
             throws IOException {
-
-
-      // System.out.println(convertDecToN(216,16));
 
         try {
             rb = new Reader();
@@ -32,92 +25,19 @@ class Sep4 {
 
     }
 
+
 //=====================- SOLUTION -===================>
 
-   static int sumDigit(String num){
-        int sum = 0;
-        for (int i = 0 ; i < num.length() ; i++){
-            sum += num.charAt(i)-48;
-        }
-
-        return sum;
-    }
-
     static void Solution() throws IOException {
+        String inp[] = rb.readLine().split(" ");
 
-        String[] inp = rb.readLine().split(" ");
-
-        int num = Integer.parseInt(inp[0]);
-        int l = Integer.parseInt(inp[1]);
-        int r = Integer.parseInt(inp[2]);
-
-        int min = Integer.MAX_VALUE;
-        int flag = 0;
-
-        if (l<num && num<r){
-            System.out.println(num);
-        }
-        else if(r>num){
-            System.out.println(r);
-        }
-        else{
-
-        for (int i = r ; i >= l ; i --){
-
-            int sum = 0;
-            int ntemp = num;
-
-            while(ntemp >0){
-
-                sum+= ntemp % i;
-                ntemp /= i;
-
-                if(sum>min){
-                    break;
-                }
-            }
-            if(min>sum) {
-                min = sum;
-                flag = i;
-            }
-            if(min == 1){
-                break;
-            }
-            //System.out.println("converted base with "+i+" :"+s);
-            // System.out.println(sum);
-        }
-
-        System.out.println(flag);
-
-}
     }
-
-
-    static String convertDecToN(long dec,int n){
-        StringBuilder s = new StringBuilder();
-        while (dec>0){
-            s.append((char) (dec%n+48));
-            dec /= n;
-        }
-        return new String(s.reverse());
-    }
-
-    static int  fasterModulo(int dividend , int divisor){
-        while (dividend >= divisor) dividend-=divisor;
-        return dividend;
-    }
-
-    static int  fastestModulo(int dividend, int divisor){
-        return dividend & (divisor -1);
-    }
-
 
     static int[] convStrngArrToint(String[] arr) {
         int arr_lenght = arr.length;
         int[] int_arr = new int[arr_lenght];
         for (int i = 0; i < arr_lenght; i++) {
             int_arr[i] = Integer.parseInt(arr[i]);
-
         }
         return int_arr;
     }

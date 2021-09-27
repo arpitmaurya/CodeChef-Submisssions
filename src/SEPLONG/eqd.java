@@ -1,24 +1,28 @@
-package September;
+package SEPLONG;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.HashMap;
 
 
-public class sep2 {
+public class eqd {
 
     static Reader rb;
 
     public static void main(String[] args)
             throws IOException {
 
+        try{
         rb = new Reader();
         int t = rb.nextInt();
 
         for (int i = 1; i <= t; ++i) {
             Solution();
+        }}catch (Exception e ){
+
         }
-        rb.close();
+
     }
 
 
@@ -27,33 +31,53 @@ public class sep2 {
     static void Solution() throws IOException {
 
         int n = rb.nextInt();
-        String[] tempA = rb.readLine().split(" ");
-        int[] arrA= convStrngArrToint(tempA);
+        String[] inp = rb.readLine().split(" ");
+        Integer[] arr = convStrngArrToInt(inp);
 
-        int evenA = 0 ;
-        int oddA= 0;
-        for (int i = 0 ; i < n ; ++i){
-            if(isEven(arrA[i])){
-                evenA += 1;
-            }else{
-                oddA++;
+        if(arr.length<=2){
+            System.out.println(0);
+        }
+        else {
+            HashMap<Integer, Integer> map = new HashMap<>();
+
+            for (Integer i : arr) {
+                if (map.containsKey(i)) {
+                    map.put(i, map.get(i) + 1);
+                } else {
+                    map.put(i, 1);
+                }
             }
+
+            int m = 0;
+            for (Integer i : map.keySet()){
+                m = Integer.max(m,map.get(i));
+            }
+
+            if(m==1) {
+                System.out.println(n-2);
+            }
+            else {
+                System.out.println(n-m);
+
+
+            }
+
         }
-
-        int dEven = n/2;
-        int dOdd = n/2;
-
-        if(n%2==1){
-            dOdd++;
-        }
-
-        System.out.println(Math.min(dOdd, evenA) + Math.min(dEven,oddA));
 
     }
 
     static int[] convStrngArrToint(String[] arr) {
         int arr_lenght = arr.length;
         int[] int_arr = new int[arr_lenght];
+        for (int i = 0; i < arr_lenght; i++) {
+            int_arr[i] = Integer.parseInt(arr[i]);
+        }
+        return int_arr;
+    }
+
+    static Integer[] convStrngArrToInt(String[] arr) {
+        int arr_lenght = arr.length;
+        Integer[] int_arr = new Integer[arr_lenght];
         for (int i = 0; i < arr_lenght; i++) {
             int_arr[i] = Integer.parseInt(arr[i]);
         }
